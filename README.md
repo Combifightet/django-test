@@ -1,5 +1,9 @@
 # Django / Svelte - Playground
 
+use this link: \
+<http://127.0.0.1:8000/api/tables/3708/rows> \
+to test the most bassic api call.
+
 ## Helpful Links
 
 - [My Django-Svelte setup for fullstack development](https://dev.to/besil/my-django-svelte-setup-for-fullstack-development-3an8)
@@ -18,4 +22,4 @@ Create a toplevel `.env` file with the following secrets:
 ### Excecution
 
 1. Install requirements
-2. excecute with `python manage.py runserver`
+2. excecute with `python.exe .\backend\manage.py runserver`

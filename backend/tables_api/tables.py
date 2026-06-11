@@ -5,26 +5,22 @@
 '''
 
 import os
-import traceback
 import requests
 from requests.auth import HTTPBasicAuth
 
+from django.conf import settings
+
 REQUEST_TIMEOUT = 30
 
-try:
-    tablesURL = os.environ['TABLES_URL']
-    tablesUsername = os.environ['TABLES_USERNAME']
-    tablesPassword = os.environ['TABLES_PASSWORD']
-except KeyError as exc:
-    raise KeyError(traceback.format_exc()) from exc
 
 
 class NextcloudTablesClient:
+    ''' Utility class for interfacing with the nextcloud (tables) api.'''
     def __init__(self):
-        self.base_url = tablesURL  # endet mit /
+        self.base_url = settings.TABLES_URL  # endet mit /
         self.auth = HTTPBasicAuth(
-            tablesUsername,
-            tablesPassword,
+            settings.TABLES_USERNAME,
+            settings.TABLES_PASSWORD,
         )
 
     def _get(self, path: str):
@@ -53,7 +49,7 @@ class NextcloudTablesClient:
 
 
 def main() -> None:
-    ''' main method'''
+    ''' example main method'''
     view_id = int(os.environ.get('TABLE_VIEW_ID', '3708'))
     client = NextcloudTablesClient()
 

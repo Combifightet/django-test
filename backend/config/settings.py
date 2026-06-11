@@ -10,10 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+_ = load_dotenv(BASE_DIR / '.env')
+
+TABLES_URL: str = os.environ.get('TABLES_URL', '')
+TABLES_USERNAME: str = os.environ.get('TABLES_USERNAME', '')
+TABLES_PASSWORD: str = os.environ.get('TABLES_PASSWORD', '')
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
