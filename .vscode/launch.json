@@ -1,0 +1,23 @@
+{
+	"configurations": [
+		{
+			"name": "Django (Python Debugger)",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "${workspaceFolder}/backend/manage.py",
+            "envFile": "${workspaceFolder}/.env",
+			// "console": "integratedTerminal"
+			"args": [
+				"runserver"
+			],
+			"django": true
+		},
+		{
+			"name": "Current File (Python Debugger)",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "${file}",
+			"console": "integratedTerminal"
+		},
+	]
+}
